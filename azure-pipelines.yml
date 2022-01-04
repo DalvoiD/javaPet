@@ -28,6 +28,7 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
+    - bash: mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
