@@ -31,10 +31,7 @@ stages:
     - bash: mkdir -p target/dependency
     - bash: ls
     - bash: cd target/dependency && jar -xf $(Build.SourcesDirectory)/complete/.mvn/wrapper/maven-wrapper.jar
-    - bash: cd target/dependency && jar -xf $(Build.SourcesDirectory)/complete/gradle/wrapper/gradle-wrapper.jar
-    - bash: cd target/dependency && jar -xf $(Build.SourcesDirectory)/initial/.mvn/wrapper/maven-wrapper.jar
-    - bash: cd target/dependency && jar -xf $(Build.SourcesDirectory)/initial/gradle/wrapper/gradle-wrapper.jar
-    - bash: cd target/dependency/META-INF && ls
+    - bash: cd target/dependency && ls
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
