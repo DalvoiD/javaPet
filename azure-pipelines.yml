@@ -29,7 +29,8 @@ stages:
       vmImage: $(vmImageName)
     steps:
     - bash: cd $(Build.SourcesDirectory)/complete
-    - bash: mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
+    - bash: ls
+    - bash: mkdir -p target/dependency && (cd target/dependency; jar -xf $(Build.SourcesDirectory)/complete/.mvn/wrapper/maven-wrapper.jar)
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
